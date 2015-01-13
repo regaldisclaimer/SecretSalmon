@@ -28,9 +28,20 @@ exports.registerUser = function (body, fbRef, callback) {
 		}
 	}
 
+	// create random alphanumeric temporary password
+	var charPool = 'abcedefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+	var genPass = '';
+	for(var i=0; i<20; i++){
+		genPass += charPool[Math.floor(Math.random()*63)];
+		$(document).ready(function(){
+			$('p').text(genPass);
+		});
+	}
+
+
 	// deal with firebase createuser
 	if (!error) {
-		fbRef.createUser({ email: emailAddress, password: "SeXySaLmOnFiSh13z" }, function (err) {
+		fbRef.createUser({ email: emailAddress, password: genPass }, function (err) {
 			if (err) {
 				error = true;
 				errorMessage = error;
