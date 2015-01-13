@@ -6,6 +6,7 @@ var firebase = require('firebase');
 
 var mailer = require('./sendOffer.js');
 var createUser = require('./signupUser.js');
+var processOffer = require('./processOffer.js');
 
 var app = express();
 
@@ -44,6 +45,17 @@ app.post('/sendOffer', function(req, res) {
 // NEED TO TEST MORE/DEFINITELY TEST SECURITY
 app.post('/createUser', function(req, res) {
 	createUser.registerUser(req.body, firebaseRef, function(error) {
+		if (error) {
+			res.json({ error: true });
+		} else {
+			res.json({ error: false });
+		}
+	});
+});
+
+// NEED TO TEST MORE/PROBABLY SECURITY
+app.post('/offerProcessed', function(req, res) {
+	processOffer.respond(req.body, transporter, function(error) {
 		if (error) {
 			res.json({ error: true });
 		} else {

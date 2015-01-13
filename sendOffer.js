@@ -30,7 +30,6 @@ exports.sendMail = function (body, transporter, callback) {
 	if (errorMessage == '') {	
 		// Set basic mail options
 		var mailOptions = {
-			// REMOVE JIM'S EMAIL
 			from: 'Deanslist', // Should use process.env
 			to: body.recipient,
 			subject: 'Dean\'s list offer',
