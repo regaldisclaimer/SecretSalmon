@@ -17,6 +17,7 @@ var transportOptions = {
 	}
 }
 
+var transporter = nodemailer.createTransport(sgTransport(transportOptions));
 var firebaseRef = new firebase("https://deans.firebaseio.com/");
 
 app.use(bodyParser.json());
@@ -29,14 +30,6 @@ app.use(function (req, res, next) {
   	next();
 });
 
-app.get('/', function (request, response) {
-  response.set('Content-Type', 'text/html');
-  response.send('<p>Hey, it works!</p>');
-});
-
-var transporter = nodemailer.createTransport(sgTransport(transportOptions));
-
-
 // NEED TO TEST MORE/TEST SECURITY
 app.post('/sendOffer', function(req, res) {
 	mailer.sendMail(req.body, transporter, function(error) {
@@ -47,7 +40,6 @@ app.post('/sendOffer', function(req, res) {
 		}
 	});
 });
-
 
 // NEED TO TEST MORE/DEFINITELY TEST SECURITY
 app.post('/createUser', function(req, res) {
