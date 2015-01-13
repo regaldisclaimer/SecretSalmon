@@ -30,7 +30,6 @@ var transporter = nodemailer.createTransport({
 });
 
 app.post('/sendOffer', function(req, res) {
-	console.log(req.body);
 	mailer.sendMail(req.body, transporter);
 	res.send('Hi!');
 });
