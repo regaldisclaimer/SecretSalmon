@@ -3,6 +3,7 @@ var exports = module.exports = {}; // Used to export the sendMail function
 /*
 	@param body: pass in req.body from the original request
 	@param transporter: nodemailer Transport
+	@param callback: callback(error) that handles error
 	Formats and send an email based on information in body
 */ 
 exports.sendMail = function (body, transporter, callback) {
