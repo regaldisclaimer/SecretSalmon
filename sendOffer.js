@@ -5,7 +5,7 @@ var exports = module.exports = {}; // Used to export the sendMail function
 	@param transporter: nodemailer Transport
 	Formats and send an email based on information in body
 */ 
-exports.sendMail = function (body, transporter) {
+exports.sendMail = function (body, transporter, callback) {
 	
 	// Set basic mail options
 	var mailOptions = {
@@ -30,14 +30,8 @@ exports.sendMail = function (body, transporter) {
 
 	mailOptions.html = message;
 
-	var didError = false;
-
 	transporter.sendMail(mailOptions, function(error, response) {
-		if (error) {
-			console.log(error);
-			didError = true;
-		}
+		console.log(error);
+		callback(error);
 	});
-
-	return (!didError);
 };
