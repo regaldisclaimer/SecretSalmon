@@ -38,7 +38,7 @@ var transportOptions = {
 var transporter = nodemailer.createTransport(sgTransport(transportOptions));
 
 app.post('/sendOffer', function(req, res) {
-	mailer.sendMail(req.body, transporter);
+	mailer.sendMail(req.body, transporter); // ADD CALLBACK SO WE CAN RESPOND WITH SUCCESS ASYNCHRONOUSLY
 	res.send('Hi!');
 });
 
