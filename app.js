@@ -2,9 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
 var mailer = require('./sendOffer.js');
+var sgTransport = require('nodemailer-sendgrid-transport');
 
 var app = express();
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,13 +21,14 @@ app.get('/', function (request, response) {
   response.send('<p>Hey, it works!</p>');
 });
 
-var transporter = nodemailer.createTransport({
-    service: 'SendGrid',
-    auth: {
-        user: process.env.NAME,
-        pass: process.env.PASS
-    }
-});
+var transportOptions = {
+	auth: {
+		api_user: process.env.NAME,
+		api_key: process.env.PASS
+	}
+}
+
+var transporter = nodemailer.createTransport(sgTransport(transportOptions));
 
 app.post('/sendOffer', function(req, res) {
 	mailer.sendMail(req.body, transporter);

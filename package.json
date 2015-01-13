@@ -5,6 +5,7 @@
                 "express": "latest",
                 "nodemailer": "latest",
                 "firebase": "latest",
-                "body-parser": "latest"
+                "body-parser": "latest",
+                "nodemailer-sendgrid-transport": "latest"
         }
 }
