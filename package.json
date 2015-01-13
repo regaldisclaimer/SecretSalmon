@@ -1,0 +1,9 @@
+{
+        "name": "deanslist",
+        "version": "0.0.1",
+        "dependencies": {
+                "express": "latest",
+                "nodemailer": "latest",
+                "firebase": "latest"
+        }
+}
