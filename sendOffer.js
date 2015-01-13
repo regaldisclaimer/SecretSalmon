@@ -34,5 +34,7 @@ exports.sendMail = function (body, transporter) {
 		}
 	});
 
+	console.log(didError);
+
 	return (!didError);
 };
