@@ -22,10 +22,10 @@ app.get('/', function (request, response) {
 });
 
 var transporter = nodemailer.createTransport({
-    service: 'Hotmail',
+    service: 'SendGrid',
     auth: {
-        user: process.env.GNAME,
-        pass: process.env.GPASS
+        user: process.env.NAME,
+        pass: process.env.PASS
     }
 });
 
