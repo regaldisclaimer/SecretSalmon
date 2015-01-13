@@ -4,6 +4,7 @@
         "dependencies": {
                 "express": "latest",
                 "nodemailer": "latest",
-                "firebase": "latest"
+                "firebase": "latest",
+                "body-parser": "latest"
         }
 }
