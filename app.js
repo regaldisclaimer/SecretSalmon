@@ -36,6 +36,8 @@ app.get('/', function (request, response) {
 
 var transporter = nodemailer.createTransport(sgTransport(transportOptions));
 
+
+// NEED TO TEST MORE/TEST SECURITY
 app.post('/sendOffer', function(req, res) {
 	mailer.sendMail(req.body, transporter, function(error) {
 		if (error) {
@@ -46,6 +48,8 @@ app.post('/sendOffer', function(req, res) {
 	});
 });
 
+
+// NEED TO TEST MORE/DEFINITELY TEST SECURITY
 app.post('/createUser', function(req, res) {
 	createUser.registerUser(req.body, firebaseRef, function(error) {
 		if (error) {
