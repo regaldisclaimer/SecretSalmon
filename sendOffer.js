@@ -9,7 +9,8 @@ exports.sendMail = function (body, transporter) {
 	
 	// Set basic mail options
 	var mailOptions = {
-		from: 'Dean\'s List <' + process.env.NAME + '>', // Should use process.env
+		// REMOVE JIM'S EMAIL
+		from: 'Deanslist', // Should use process.env
 		to: body.recipient,
 		subject: 'Dean\'s list offer',
 	};

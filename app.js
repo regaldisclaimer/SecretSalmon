@@ -21,10 +21,17 @@ app.get('/', function (request, response) {
   response.send('<p>Hey, it works!</p>');
 });
 
+var userName = process.env.MNAME;
+console.log(process.env.MNAME);
+console.log(userName);
+var userPass = process.env.MPASS;
+console.log(process.env.MPASS);
+console.log(userPass);
+
 var transportOptions = {
 	auth: {
-		api_user: process.env.NAME,
-		api_key: process.env.PASS
+		api_user: process.env.MNAME,
+		api_key: process.env.MPASS
 	}
 }
 
