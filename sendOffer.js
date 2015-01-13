@@ -9,11 +9,14 @@ exports.sendMail = function (body, transporter) {
 	
 	// Set basic mail options
 	var mailOptions = {
-		from: 'Dean\'s List <deanslistoffers@gmail.com>',
+		from: 'Dean\'s List <' + process.env.GNAME + '>', // Should use process.env
 		to: body.recipient,
 		subject: 'Dean\'s list offer',
 	};
 
+	console.log(body.recipient);
+
+	// Re-format, make pretty
 	var message = '<p>';
 	message += 'Hello!';
 	message += '\n\n' + body.sender + ' has';
@@ -30,6 +33,7 @@ exports.sendMail = function (body, transporter) {
 
 	transporter.sendMail(mailOptions, function(error, response) {
 		if (error) {
+			console.log(error);
 			didError = true;
 		}
 	});

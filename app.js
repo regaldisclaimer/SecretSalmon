@@ -22,7 +22,7 @@ app.get('/', function (request, response) {
 });
 
 var transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    service: 'Hotmail',
     auth: {
         user: process.env.GNAME,
         pass: process.env.GPASS
