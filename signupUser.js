@@ -33,9 +33,6 @@ exports.registerUser = function (body, fbRef, callback) {
 	var genPass = '';
 	for(var i=0; i<20; i++){
 		genPass += charPool[Math.floor(Math.random()*63)];
-		$(document).ready(function(){
-			$('p').text(genPass);
-		});
 	}
 
 
